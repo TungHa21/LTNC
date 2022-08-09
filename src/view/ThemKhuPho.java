@@ -16,6 +16,7 @@ import java.awt.Font;
 import javax.swing.border.LineBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
 
 public class ThemKhuPho extends JFrame {
 
@@ -186,13 +187,11 @@ public class ThemKhuPho extends JFrame {
 		lblNewLabel_6.setBounds(349, 10, 169, 13);
 		contentPane.add(lblNewLabel_6);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(347, 33, 297, 279);
-		contentPane.add(panel);
-		
 		JScrollPane scrollPane = new JScrollPane();
-		panel.add(scrollPane);
+		scrollPane.setBounds(349, 44, 281, 271);
+		contentPane.add(scrollPane);
+		
+		JTextPane textPane = new JTextPane();
+		scrollPane.setViewportView(textPane);
 	}
 }

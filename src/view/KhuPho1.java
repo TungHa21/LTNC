@@ -22,16 +22,20 @@ import java.awt.event.ActionEvent;
 import javax.swing.Box;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.Scrollbar;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+import javax.swing.JTable;
+import java.awt.Font;
 
 public class KhuPho1 extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -54,16 +58,18 @@ public class KhuPho1 extends JFrame {
 	 */
 	public KhuPho1() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 461, 364);
+		setBounds(100, 100, 889, 364);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Navigate");
+		mnNewMenu.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		mnNewMenu.setHorizontalAlignment(SwingConstants.LEFT);
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Thêm khu phố       Alt+C   ");
+		mntmNewMenuItem.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 
 			@Override
@@ -80,9 +86,11 @@ public class KhuPho1 extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenu mnNewMenu_1 = new JMenu("Admin");
+		mnNewMenu_1.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Tung          Shift+T");
+		mntmNewMenuItem_1.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				KhuPho1 frameKhuPho1 = new KhuPho1();
@@ -95,6 +103,7 @@ public class KhuPho1 extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_1_1 = new JMenuItem("Tuan          Shift+N");
+		mntmNewMenuItem_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		mntmNewMenuItem_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				KhuPho1 frameKhuPho1 = new KhuPho1();
@@ -107,6 +116,7 @@ public class KhuPho1 extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_1_1);
 		
 		JMenuItem mntmNewMenuItem_1_2 = new JMenuItem("Minh          Shift+M");
+		mntmNewMenuItem_1_2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		mntmNewMenuItem_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				KhuPho1 frameKhuPho1 = new KhuPho1();
@@ -119,9 +129,11 @@ public class KhuPho1 extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_1_2);
 		
 		JMenu mnNewMenu_2 = new JMenu("Exit");
+		mnNewMenu_2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		menuBar.add(mnNewMenu_2);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Thoát          Shift+X");
+		mntmNewMenuItem_2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				KhuPho1 frameKhuPho1 = new KhuPho1(); 
@@ -139,6 +151,7 @@ public class KhuPho1 extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Thêm khu phố");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				KhuPho1 frameKhuPho1 = new KhuPho1();
@@ -148,19 +161,21 @@ public class KhuPho1 extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(10, 62, 154, 21);
+		btnNewButton.setBounds(20, 37, 154, 21);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Nhập mã khu phố để xem, sửa hoặc xóa");
-		lblNewLabel.setBounds(10, 10, 184, 13);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblNewLabel.setBounds(10, 14, 231, 13);
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setBounds(10, 33, 154, 19);
+		textField.setBounds(280, 11, 231, 19);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnNewButton_1 = new JButton("Sửa");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ThemKhuPho frameSuaKhuPho = new ThemKhuPho();
@@ -170,35 +185,49 @@ public class KhuPho1 extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(220, 6, 85, 21);
+		btnNewButton_1.setBounds(618, 14, 85, 21);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("Xem");
+		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1_1.setBounds(220, 50, 85, 21);
+		btnNewButton_1_1.setBounds(618, 58, 85, 21);
 		contentPane.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_2 = new JButton("Xóa");
-		btnNewButton_1_2.setBounds(341, 6, 85, 21);
+		btnNewButton_1_2.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnNewButton_1_2.setBounds(739, 14, 85, 21);
 		contentPane.add(btnNewButton_1_2);
 		
 		JButton btnNewButton_1_3 = new JButton("Làm mới");
-		btnNewButton_1_3.setBounds(341, 50, 85, 21);
+		btnNewButton_1_3.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnNewButton_1_3.setBounds(739, 58, 85, 21);
 		contentPane.add(btnNewButton_1_3);
 		
-		Box verticalBox = Box.createVerticalBox();
-		verticalBox.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		verticalBox.setBounds(37, 226, 365, -109);
-		contentPane.add(verticalBox);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(21, 96, 803, 188);
+		contentPane.add(scrollPane);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(10, 93, 416, 190);
-		contentPane.add(panel);
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		loaddata();
+	}
+	private void loaddata() {
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("Mã người");
+		model.addColumn("Họ và tên");
+		model.addColumn("Tuổi");
+		model.addColumn("Năm sinh");
+		model.addColumn("Nghề nghiệp");
+		
+		model.addRow(new Object[] {"NG02", "Nguyễn Thị Thanh Quỳnh", 20, 2000, "Kỹ sư"});
+		model.addRow(new Object[] {"NG06", "Nguyễn Thị Thúy Hiền", 17, 2003, "Học sinh"});
+		model.addRow(new Object[] {"NG07", "Nguyễn Hải Yến", 21, 2000, "Kỹ sư"});
+		
+		table.setModel(model);		
 	}
 
 	private static void addPopup(Component component, final JPopupMenu popup) {

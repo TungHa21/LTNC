@@ -16,6 +16,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JDialog;
@@ -186,7 +187,7 @@ public class SuaKhuPho extends JFrame {
 		lblNewLabel_1_2_1_1.setBounds(463, 158, 95, 13);
 		contentPane.add(lblNewLabel_1_2_1_1);
 		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("Họ và tên");
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("Năm sinh");
 		lblNewLabel_1_1_1_1.setBounds(463, 132, 95, 13);
 		contentPane.add(lblNewLabel_1_1_1_1);
 		
@@ -207,26 +208,28 @@ public class SuaKhuPho extends JFrame {
 		btnNewButton_2_2_1.setBounds(609, 218, 118, 21);
 		contentPane.add(btnNewButton_2_2_1);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(10, 249, 720, 185);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(359, 6, 2, 2);
-		panel.add(scrollPane);
+		scrollPane.setBounds(10, 256, 722, 178);
+		contentPane.add(scrollPane);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(703, 0, 17, 185);
-		panel.add(scrollBar);
 		table = new JTable();
-		table.setBounds(0, 0, 720, 185);
-		panel.add(table);
+		scrollPane.setViewportView(table);	
+		loaddata();
 		
-
-				
 	}
+	private void loaddata() {
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("Mã người");
+		model.addColumn("Họ và tên");
+		model.addColumn("Tuổi");
+		model.addColumn("Năm sinh");
+		model.addColumn("Nghề nghiệp");
+		
+		model.addRow(new Object[] {"NG02", "Nguyễn Thị Thanh Quỳnh", 20, 2000, "Kỹ sư"});
+		model.addRow(new Object[] {"NG06", "Nguyễn Thị Thúy Hiền", 17, 2003, "Học sinh"});
+		model.addRow(new Object[] {"NG07", "Nguyễn Hải Yến", 21, 2000, "Kỹ sư"});
+		
+		table.setModel(model);
+	}
+	
 }

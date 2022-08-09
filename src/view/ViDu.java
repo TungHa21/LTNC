@@ -11,8 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JPasswordField;
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import java.awt.event.ActionListener;
+import java.util.Enumeration;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -22,6 +24,9 @@ public class ViDu extends JFrame {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private final ButtonGroup LevelUser = new ButtonGroup();
+	private String Vaitro;
+	private JLabel lblNewLabel_2 = new JLabel("");
+	private int level;
 
 	/**
 	 * Launch the application.
@@ -59,19 +64,18 @@ public class ViDu extends JFrame {
 		JButton btnNewButton = new JButton("Đăng nhập");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tkhoan = textField.getText();
-				String mkhau = String.valueOf(passwordField.getPassword());
-				
-				//check với database để xác nhận đăng nhập
-				if(tkhoan.equals("123") && mkhau.equals("123")) {
-					ViDu frameDangnhap = new ViDu();
-					KhuPho1 frameKhuPho = new KhuPho1(); 
-					frameKhuPho.setVisible(true);
-					frameDangnhap.setVisible(false);
-					dispose();
+				Enumeration<AbstractButton> user_level = LevelUser.getElements();
+				while(user_level.hasMoreElements()) {
+					JCheckBox checked_box = (JCheckBox)user_level.nextElement();
+					if(checked_box.isSelected()) {
+						Vaitro = checked_box.getText();
+					}
+				}
+				if(Vaitro.equals("Quản trị")) {
+					level = 1;
 				}
 				else {
-					LoginStatusLabel.setText("Đăng nhập thất bại, vui lòng nhập lại!");
+					level = 0;
 				}
 			}
 		});
@@ -102,6 +106,7 @@ public class ViDu extends JFrame {
 		chckbxNgiDng.setBounds(258, 148, 138, 21);
 		contentPane.add(chckbxNgiDng);
 		
+		
 		JLabel lblNewLabel_1 = new JLabel("Phần mềm quản lý khu phố - Tác giả: Hà Thanh Tùng");
 		lblNewLabel_1.setBounds(97, 10, 297, 13);
 		contentPane.add(lblNewLabel_1);
@@ -109,6 +114,10 @@ public class ViDu extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(134, 102, 197, 19);
 		contentPane.add(passwordField);
+		
+		
+		lblNewLabel_2.setBounds(150, 262, 133, 13);
+		contentPane.add(lblNewLabel_2);
 		
 	}
 }

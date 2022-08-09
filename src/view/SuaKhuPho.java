@@ -215,6 +215,7 @@ public class SuaKhuPho extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);	
 		loaddata();
+		loaddata();
 		
 	}
 	private void loaddata() {
